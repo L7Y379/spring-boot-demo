@@ -7,10 +7,10 @@ import com.atguigu.admin.bean.User;
 //import com.atguigu.admin.service.AccountService;
 //import com.atguigu.admin.service.CityService;
 import lombok.extern.slf4j.Slf4j;
-//import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Autowired;
 //import org.springframework.data.redis.core.StringRedisTemplate;
 //import org.springframework.data.redis.core.ValueOperations;
-//import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.StringUtils;
@@ -27,18 +27,18 @@ import javax.servlet.http.HttpSession;
 public class IndexController {
 
 
-//    @Autowired
-//    JdbcTemplate jdbcTemplate;
+    @Autowired
+    JdbcTemplate jdbcTemplate;
 //
 //    @Autowired
 //    AccountService accountService;
-//
+
 //    @Autowired
 //    CityService cityService;
 //
 //    //    @Autowired
 //    StringRedisTemplate redisTemplate;
-//
+
 //    @ResponseBody
 //    @PostMapping("/city")
 //    public City saveCity(City city){
@@ -52,21 +52,21 @@ public class IndexController {
 //    public City getCityById(@RequestParam("id") Long id){
 //        return cityService.getById(id);
 //    }
-//
+
 //    @ResponseBody
 //    @GetMapping("/acct")
 //    public Account getById(@RequestParam("id") Long id){
 //
 //        return accountService.getAcctByid(id);
 //    }
-//
-//
-//    @ResponseBody
-//    @GetMapping("/sql")
-//    public String queryFromDb(){
-//        Long aLong = jdbcTemplate.queryForObject("select count(*) from account_tbl", Long.class);
-//        return aLong.toString();
-//    }
+
+
+    @ResponseBody
+    @GetMapping("/sql")
+    public String queryFromDb(){
+        Long aLong = jdbcTemplate.queryForObject("select count(*) from account_tbl", Long.class);
+        return aLong.toString();
+    }
 
     /**
      * 来登录页
